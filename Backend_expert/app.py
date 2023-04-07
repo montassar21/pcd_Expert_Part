@@ -23,26 +23,25 @@ def upload():
         filename = secure_filename(file.filename)
 
         # Check if file format is supported
-        file_formats = {
-            '.csv': pd.read_csv,
-            '.xlsx': pd.read_excel,
-            '.pkl': pd.read_pickle,
-            '.json': pd.read_json,
-            '.h5': pd.read_hdf
-        }
         file_format = os.path.splitext(filename)[1]
-        if file_format not in file_formats:
+        if file_format not in ['.csv', '.txt', '.xlsx']:
             return jsonify({'error': 'Unsupported file format.'}), 400
 
         # Read file into pandas DataFrame
-        df = file_formats[file_format](file)
+        if file_format == '.xlsx':
+            df = pd.read_excel(file)
+        else:
+            df = pd.read_csv(file)
 
         # Perform data preprocessing, cleaning, visualization, and model training
         # ...
 
+        # Convert DataFrame to CSV format
+        csv_data = df.to_csv(index=False)
+
         # Return success response
         comment=request.form.get('comment')
-        return jsonify({'message': f'File {filename} uploaded successfully.', 'comment':comment}), 200
+        return jsonify({'message': f'File {filename} uploaded successfully.', 'comment': comment, 'data': csv_data}), 200
     
     except FileNotFoundError:
         return jsonify({'error': 'No file found.'}), 400
