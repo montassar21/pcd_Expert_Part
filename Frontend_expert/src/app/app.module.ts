@@ -4,17 +4,23 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 import { AppComponent } from './app.component';
 import { UploadFileComponent } from './file-upload/file-upload.component';
+import { AlgorithmsComponent } from './algorithms/algorithms.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    AlgorithmsComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    ReactiveFormsModule ,
-    FormsModule
+    NgToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

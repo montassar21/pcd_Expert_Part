@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithms</title>
+</head>
+<body>
+
+  <h2 class="text-center p-4  ">Choose an algorithm to use </h2>
+    <div class="outer" >
+      <div class="container ">
+        <div class="column justify-content-center">
+        <div class="btn-group mb-1 ms-5">
+          <button  (click)="executeDT()"  class="btn btn-success p-3" type="button">Descision Tree</button>
+          <button class="btn dropdown-toggle dropdown-toggle-split btn-success me-4" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only"></span></button>
+          <div class="dropdown-menu">
+
+            <a class="dropdown-item" href="#"></a>
+            <a class="dropdown-item" href="#">Read about Decision Tree</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+        <div class="btn-group mb-1 ms-4">
+          <button  (click)="executeRF()"  class="btn btn-warning p-3" type="button">Random Forest</button>
+          <button class="btn dropdown-toggle dropdown-toggle-split btn-warning  me-4" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only"></span></button>
+          <div class="dropdown-menu">
+
+            <a class="dropdown-item" href="#">Read about Random Forest</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+        <div class="btn-group mb-1 ms-4">
+          <button (click)="executeSVM()" class="btn btn-secondary p-3" type="button">SVM</button>
+          <button class="btn dropdown-toggle dropdown-toggle-split btn-secondary  me-4" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only"></span></button>
+          <div class="dropdown-menu">
+
+            <a class="dropdown-item" href="#">Read about SVM</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+        <div class="btn-group mb-1 ms-4">
+          <button (click)="executeLR()" class="btn btn-info p-3" type="button">Logistic Regression</button>
+          <button class="btn dropdown-toggle dropdown-toggle-split btn-info  me-4 " type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only"></span></button>
+          <div class="dropdown-menu">
+
+            <a class="dropdown-item" href="#">Read about Logistic Regression</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+        <div class="btn-group mb-1 ms-4">
+          <button  (click)="executeGBC()" class="btn1 btn btn-secondary p-3  " type="button">Gradient Boosting Classifier</button>
+          <button class="btn dropdown-toggle dropdown-toggle-split btn-secondary" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only"></span></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Read about Gradient Boosting Classifier</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+      </div>
+      <div class="row g-1 mt-4">
+        <div class="col-12 col-md-6">
+          <div class="card border border-200 shadow-none h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h5 class="mb-1">Confusion Matrix:</h5>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center px-4 py-6">
+                <div style="height: 255px; width: 115px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;" > <img style="height: 325px; width: 505px; position: relative;top:-35px;right:190px" src="{{this.cm}}">
+                </div>
+              </div>
+              <form [formGroup]="formDat">
+                <input value="Confusion matrix" formControlName="name" name="name" hidden>
+
+              <div class="m-0">
+                <label class="form-label" for="exampleTextarea">Comment</label>
+                <textarea class="form-control" name="comment" formControlName="comment" id="exampleTextarea"  [placeholder]="'Comment these results '" rows="3"></textarea>
+              </div>
+              <button (click)="addComment('Confusion matrix')" type="button" class="btn btn-primary mt-3">Add Comment</button>
+</form>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card border border-200 shadow-none h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h5 class="mb-1">Receiver Operating Characteristic: </h5>
+                </div>
+              </div>
+              <div class="pb-0 pt-1">
+                <div class="echarts-new-customers" style="height: 180px; width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;" ><div >
+                <img style="position: relative; width: 620px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: pointer;" src="{{this.curve}}"></div><div class=""></div></div>
+              </div>
+            </div>
+            <form [formGroup]="formDat">
+              <input value="Receiver operating Characteristics" formControlName="name" name="name" hidden>
+
+              <div class="mt-3 ms-3 me-3">
+                <label class="form-label" for="exampleTextarea">Comment</label>
+                <textarea class="form-control" name="comment" formControlName="comment" id="exampleTextarea"  [placeholder]="'Comment these results '" rows="3"></textarea>
+              </div>
+              <button (click)="addComment('Receiver Operating Characteristic')" type="button" class="btn btn-primary m-3">Add Comment</button>
+</form>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 ">
+          <div class="card border border-200 shadow-none h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h5 class="mb-1">Accuracy : </h5>
+                </div>
+                <h4>{{this.accuracy}}</h4>
+              </div>
+              <div class="pb-5 pt-1">
+                <div class="echart-top-coupons" style="height: 215px; width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;"><div ><img class="ms-5" style="position: relative; width: 465px; height: 285px; padding: 0px; margin: 0px; border-width: 0px;"src="{{this.acc}}"></div><div class=""></div></div>
+              </div>
+              <div>
+                <form [formGroup]="formDat">
+                  <input name="name"  value="Accuracy" formControlName="name" name="name" hidden/>
+                  <div class="mt-5">
+                    <label class="form-label" for="exampleTextarea">Comment</label>
+                    <textarea name="comment"  class="form-control" formControlName="comment" id="exampleTextarea"  [placeholder]="'Comment these results '" rows="3"></textarea>
+                  </div>
+                  <button (click)="addComment('Accuracy')" type="button" class="btn btn-primary mt-3">Add Comment</button>
+    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card border border-200 shadow-none h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h5 class="mb-2">Classification Report :</h5>
+                </div>
+              </div>
+              <div class="justify-content-center pt-1 pb-2">
+                <div><img class="ms-3" style="height: 279px;width:610px" src="{{this.report}}"></div>
+              </div>
+              <form [formGroup]="formDat">
+                <input name="name" value="Classification report" name="name" formControlName="name" hidden>
+                <div class="mt-4">
+                  <label class="form-label" for="exampleTextarea">Comment</label>
+                  <textarea name="comment" class="form-control"formControlName="comment" id="exampleTextarea"  [placeholder]="'Comment these results '" rows="3"></textarea>
+                </div>
+                <button (click)="addComment('Classification report')" type="button" class="btn btn-primary mt-3">Add Comment</button>
+  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+</body>
+</html>
+
