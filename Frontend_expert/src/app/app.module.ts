@@ -7,12 +7,16 @@ import { UploadFileComponent } from './file-upload/file-upload.component';
 import { AlgorithmsComponent } from './algorithms/algorithms.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgToastModule } from 'ng-angular-popup';
+import { AdminComponent } from './admin/admin.component';
+import { CommentsAdminComponent } from './comments-admin/comments-admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadFileComponent,
-    AlgorithmsComponent
+    AlgorithmsComponent,
+    AdminComponent,
+    CommentsAdminComponent
   ],
   imports: [
     BrowserModule,
